@@ -45,7 +45,8 @@ library(palmerpenguins)
 #' @return A data frame or tibble with the 
 #' levels of `group`, and the  number of NAs within 
 #' each level of `group` for all columns in
-#' `data` except `group`.      
+#' `data` except `group`. 
+#' @export     
 count_all_missing_by_group <- function(data, group_col, .groups = "drop") { 
   
   if(!is.null(.groups)) { 
