@@ -34,6 +34,10 @@ library(palmerpenguins)
 #' levels of `group`, and the  number of NAs within
 #' each level of `group` for all columns in
 #' `data` except `group`.
+#' @examples This example computes the number of missing values in the `airquality` dataset grouped by the `cyl` column.
+#' # count_all_missing_by_group(airquality, Month)
+#'
+#'
 #' @export
 count_all_missing_by_group <- function(data, group_col, .groups = "drop") {
 
