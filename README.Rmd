@@ -18,7 +18,7 @@ This function allows you to take any data frame "data" and a column or "group" a
 To install this package code:
 
 ``` R
-devtools::install_github("fatyas/assignmentb2package")
+devtools::install_github("stat545ubc-2025/assignment-b2-fatyas")
 #and then load the package by coding 
 library(assignmentb2package)
 ```
@@ -38,4 +38,4 @@ you should be able to see that Adelie penguins have 6 values missing for sex.
 
 ### Software Requirements
 
-To use the package you will need to have R and load in the dplyr and tidyverse packages. Since this function uses the group_by and summarize functions from those packages. 
+To use the package you will need to have R and be able to load in the dplyr and tidyverse packages. Since this function uses the group_by and summarize functions from those packages. 

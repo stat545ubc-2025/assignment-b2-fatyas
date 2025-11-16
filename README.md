@@ -22,7 +22,7 @@ for all columns in “data” except “group”.
 To install this package code:
 
 ``` r
-devtools::install_github("fatyas/assignmentb2package")
+devtools::install_github("stat545ubc-2025/assignment-b2-fatyas")
 #and then load the package by coding 
 library(assignmentb2package)
 ```
@@ -47,6 +47,6 @@ sex.
 
 ### Software Requirements
 
-To use the package you will need to have R and load in the dplyr and
-tidyverse packages. Since this function uses the group_by and summarize
-functions from those packages.
+To use the package you will need to have R and be able to load in the
+dplyr and tidyverse packages. Since this function uses the group_by and
+summarize functions from those packages.
