@@ -22,7 +22,7 @@ for all columns in “data” except “group”.
 To install this package code:
 
 ``` r
-install.packages(assignmentb2package)
+devtools::install_github("fatyas/assignmentb2package")
 #and then load the package by coding 
 library(assignmentb2package)
 ```
