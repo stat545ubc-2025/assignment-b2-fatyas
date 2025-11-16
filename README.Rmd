@@ -1,0 +1,41 @@
+---
+title: "README"
+output: github_document 
+---
+
+## Welcome to the assignment b2 package
+
+### Package Description
+
+This package was created for an assignment in STAT 545, a graduate course offered by UBC. Hence the name of the package, assignmentb2package.
+
+This package includes a function called: "count all missing by group"
+
+This function allows you to take any data frame "data" and a column or "group" and creates a new data frame with one row for each group type. The first column of the output data frame contains the levels of the group, and the rest of the columns contain the number of missing values for all columns in "data" except "group".
+
+### Installation instructions
+
+To install this package code:
+
+``` R
+install.packages(assignmentb2package)
+#and then load the package by coding 
+library(assignmentb2package)
+```
+### Demonstrated Usage
+
+An example of when this package could be useful is if you want to know how many missing data you have for each category or level in a group. 
+
+For example in the palmer penguins dataset, maybe you want to know how many missing measurements there are for each species of penguin. 
+
+you could execute: 
+
+``` R
+library(palmerpenguins)
+count_all_missing_by_group(penguins, species)
+```
+you should be able to see that Adelie penguins have 6 values missing for sex. 
+
+### Software Requirements
+
+To use the package you will need to have R and load in the dplyr and tidyverse packages. Since this function uses the group_by and summarize functions from those packages. 
