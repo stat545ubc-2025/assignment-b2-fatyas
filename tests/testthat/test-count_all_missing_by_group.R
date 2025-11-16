@@ -5,13 +5,13 @@ testthat::test_that("Output matches direct call to dplyr", {
                        "B", NA, "y",
                        "C", 3, "z")
 
-  expect_equal( small_tbl |> dplyr::group_by(group) |>
+  testthat::expect_equal( small_tbl |> dplyr::group_by(group) |>
                   dplyr::summarize(across(everything(), ~sum(is.na(.x))),
                             .groups = "drop"),
                 count_all_missing_by_group(small_tbl, group)
   )
 
-  expect_equal( small_tbl |> dplyr::group_by(group) |>
+  testthat::expect_equal( small_tbl |> dplyr::group_by(group) |>
                   dplyr::summarize(across(everything(), ~sum(is.na(.x))),
                             .groups = NULL),
                 count_all_missing_by_group(small_tbl, group, NULL)
@@ -19,10 +19,10 @@ testthat::test_that("Output matches direct call to dplyr", {
 })
 
 testthat::test_that("Checking error handling for .groups input", {
-  expect_error(
+  testthat::expect_error(
     count_all_missing_by_group(airquality, Month, "kep")
   )
-  expect_no_error(
+  testthat::expect_no_error(
     count_all_missing_by_group(airquality, Month, NULL)
   )
 })
