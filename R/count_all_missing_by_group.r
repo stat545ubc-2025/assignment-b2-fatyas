@@ -46,8 +46,8 @@ count_all_missing_by_group <- function(data, group_col, .groups = "drop") {
     }
   }
 
-  data |> group_by({{ group_col }}) |>
-    summarize(across(everything(), ~sum(is.na(.x))),
+  data |> dplyr::group_by({{ group_col }}) |>
+    dplyr::summarize(across(everything(), ~sum(is.na(.x))),
               .groups = .groups)
 }
 
@@ -79,31 +79,27 @@ count_all_missing_by_group(airquality, Month, .groups = "keep")
 #The second test checks the error handling for malformed `.groups` input arguments. We check that the valid input `NULL` doesn't throw an error because `NULL` can play havoc on badly written input checks.
 
 
-test_that("Output matches direct call to dplyr", {
+testthat::test_that("Output matches direct call to dplyr", {
   small_tbl <- tribble(~group, ~var1, ~var2,
                      "A", 1, NA,
                      "A", 2, "x",
                      "B", NA, "y",
                      "C", 3, "z")
 
-  expect_equal( small_tbl |> group_by(group) |>
-                summarize(across(everything(), ~sum(is.na(.x))),
+  expect_equal( small_tbl |> dplyr::group_by(group) |>
+                dplyr::summarize(across(everything(), ~sum(is.na(.x))),
                 .groups = "drop"),
                 count_all_missing_by_group(small_tbl, group)
               )
 
-  expect_equal( small_tbl |> group_by(group) |>
-                summarize(across(everything(), ~sum(is.na(.x))),
+  expect_equal( small_tbl |> dplyr::group_by(group) |>
+                dplyr::summarize(across(everything(), ~sum(is.na(.x))),
                 .groups = NULL),
                 count_all_missing_by_group(small_tbl, group, NULL)
               )
 })
 
-test_that("Checking error handling for .groups input", {
-      expect_error(
-        count_all_missing_by_group(airquality, Month, "kep")
-      )
-      expect_no_error(
-        count_all_missing_by_group(airquality, Month, NULL)
-      )
+testthat::test_that("Checking error handling for .groups input", {
+  expect_error(count_all_missing_by_group(airquality, Month, "kep"))
+  expect_no_error(count_all_missing_by_group(airquality, Month, NULL))
   })
