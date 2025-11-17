@@ -1,6 +1,6 @@
 Package: assignmentb2package
 Title: Count All Missing Values by Group
-Version: 0.1.0
+Version: 1.0.0
 Authors@R: 
     person("First", "Last", , "first.last@example.com", role = c("aut", "cre"))
 Description: This function allows you to take any data frame "data" and a column or "group" and creates a new data frame with one row for each group type. The first column of the output data frame contains the levels of the group, and the rest of the columns contain the number of missing values for all columns in "data" except "group". It relies on dplyr functions such as group_by() and summarize()
